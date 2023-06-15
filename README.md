@@ -6,9 +6,9 @@ By Jiangqi Wu & Yuxuan Zhang
 
 ## Problem Identification
 
-In this research project, we are aiming to accurately predict the caloric content ('calories') of a recipe based on its features such as cooking time ('minutes'), description ('description'), and other nutritional information ('nutrition', 'total fat (PDV)', 'sugar (PDV)'), the number of steps ('n_steps'), and the number of ingredients ('n_ingredients') in a comprehensive recipe dataset.
+In this research project, we are aiming to accurately predict the caloric content ('calories') of a recipe based on its features such as cooking time (`minutes`), description (`description`), and other nutritional information (`nutrition`, `total fat (PDV)`, `sugar (PDV)`), the number of steps (`n_steps`), and the number of ingredients (`n_ingredients`) in a comprehensive recipe dataset.
 
-This is a regression problem since we aim to predict a continuous outcome, the 'calories', which is a numeric value.
+This is a regression problem since we aim to predict a continuous outcome, the `calories`, which is a numeric value.
 
 The significance of predicting the response variable, caloric content of a recipe, lies in its potential impact on various stakeholders in the culinary and health industry. It can serve as a valuable tool for recipe creators, dieticians, and health-conscious consumers, enabling them to understand what variables might influence the caloric content of their recipes. By identifying these variables, they can optimize their recipes for maximum nutritional efficiency, thereby assisting in maintaining a healthy lifestyle.
 
@@ -32,7 +32,14 @@ For the two random variable, we will be applying `StandardScaler` to standalize 
 
 #### Model Description and Performance
 
-We will be using linear regression model in the `sklearn` to 
+We will be using linear regression model in the `sklearn` to build up the regression model. The linear regression model will predict the calories of a recipe with a polynomial with at most degree of one.
+
+The performance of your current model, as indicated by the R^2 value, is not very strong. The R^2 value of 0.0217 implies that only approximately 2.17% of the variability in the calorie content can be explained by the variables 'n_steps' and 'n_ingredients'. This suggests that these features might not be the most influential factors when it comes to predicting calorie content, or that the relationship between these features and calories might not be linear, as assumed by the linear regression model.
+
+Additionally, the RMSE (Root Mean Squared Error) of the model is 26.447. The RMSE is a measure of the differences between the values predicted by the model and the actual values. This value is not low enough to guarantee a accurate model. 
+
+Also, using the data visualization, we can have a look at the model.
+
+The model can not correctly predic the calories of recipes since not enough feature and the recipes are clustered, making it hard to make precise prediction.
 
 
-In the model, we are using quantitative data including 
