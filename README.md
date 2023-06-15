@@ -86,6 +86,12 @@ After Grid Search, we find out the best value for `lasso_alpha` is 0.1.
 
 The final lasso model with coefficients is provided below.
 
+|   minutes |   n_steps |   n_ingredients |   calories |   total fat (PDV) |   sugar (PDV) |   sodium (PDV) |   protein (PDV) |   saturated fat (PDV) |   carbohydrates (PDV) |   Intercept |
+|----------:|----------:|----------------:|-----------:|------------------:|--------------:|---------------:|----------------:|----------------------:|----------------------:|------------:|
+|         0 |         0 |         603.775 |  0.0423454 |                 0 |             0 |      0.0496197 |        0.185867 |              0.200944 |                     0 |      427.46 |
+
+Some coefficient are 0, meaning that the lasso model have already doing the shrinking process, to eliminate the excessive featuers, avoiding overfitting problem and also making the coefficient easier to interpret.
+
 The final model have the following performance:
 
 ```
