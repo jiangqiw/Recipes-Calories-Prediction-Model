@@ -80,7 +80,16 @@ To better fit the Lasso model, we are also doing transformation on the features.
 
 ### Choice of Hyperparameters
 
-For the Lasso model, we are working on the `lasso__alpha` as hyperparameter. The alpha for the model is important since it controls the amount of shrinkage. This would directly impact the coefficients for the parameter. The higher the alpha value is, the more the model would shrink the coefficient to make it less overfitted while keeping the high RMSE and R^2 with fewer features (often not important features). We are using `GridSearchCV`, which could conduct Grid Search on the hyperparameter while using cross validation to avoid overfitting problem. 
+For the Lasso model, we are working on the `lasso__alpha` as hyperparameter. The alpha for the model is important since it controls the amount of shrinkage. This would directly impact the coefficients for the parameter. The higher the alpha value is, the more the model would shrink the coefficient to make it less overfitted while keeping the high RMSE and R^2 with fewer features (often not important features). We are using `GridSearchCV`, which could conduct Grid Search on the hyperparameter while using cross validation to avoid overfitting problem.
+
+|  0.1 |   0.2 |   0.3 |   0.4 |        0.5 |        0.6 |        0.7 |        0.8 |        0.9 |        1 |
+|----:|----:|----:|----:|---------:|---------:|---------:|---------:|---------:|---------:|
+|   1 |   1 |   1 |   1 | 0.999999 | 0.999999 | 0.999999 | 0.999998 | 0.999998 | 0.999997 |
+|   1 |   1 |   1 |   1 | 0.999999 | 0.999999 | 0.999999 | 0.999998 | 0.999998 | 0.999997 |
+|   1 |   1 |   1 |   1 | 0.999999 | 0.999999 | 0.999999 | 0.999998 | 0.999998 | 0.999997 |
+|   1 |   1 |   1 |   1 | 0.999999 | 0.999999 | 0.999999 | 0.999998 | 0.999998 | 0.999997 |
+|   1 |   1 |   1 |   1 | 0.999999 | 0.999999 | 0.999999 | 0.999998 | 0.999998 | 0.999997 |
+
 
 After Grid Search, we find out the best value for `lasso_alpha` is 0.1.
 
