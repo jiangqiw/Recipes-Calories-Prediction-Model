@@ -48,7 +48,7 @@ Also, using the data visualization, we can have a look at the model's coefficien
 
 <iframe src="assets/fig1.html" width=800 height=600 frameBorder=0></iframe>
 
-The model can not correctly predic the calories of recipes since not enough feature and the recipes are clustered, making it hard to make precise prediction.
+The model can not correctly predict the calories of recipes since not enough feature and the recipes are clustered, making it hard to make precise prediction.
 
 ## Final Model
 
