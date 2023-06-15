@@ -1,6 +1,6 @@
-# Recipes-Rating-Prediction-Model
+# Recipes-Calories-Prediction-Model
 
-This is the Project 3 under course DSC80
+This is the Project 5 under course DSC80
 
 By Jiangqi Wu & Yuxuan Zhang
 
@@ -71,6 +71,13 @@ In the final model, we are introducing the following new features that could be 
 To better fit the Lasso model, we are also doing transformation on the features. We mainly apply `StandardScaler` to our new features, including `n_ingredients`, `total fat (PDV)`, `sugar (PDV)`, `sodium (PDV)`, `protein (PDV)`, `saturated fat (PDV)`, `carbohydrates (PDV)`. We also done `QuantileTransformer` on `minutes`. This is to create better features for the Lasso model since it need to shrink some coefficients, and balance the weights of all variables before training.
 
 ### Choice of Hyperparameters
+
+For the Lasso model, we are working on the `lasso__alpha` as hyperparameter. The alpha for the model is important since it controls the amount of shrinkage. This would directly impact the coefficients for the parameter. The higher the alpha value is, the more the model would shrink the coefficient to make it less overfitted while keeping the high RMSE and R^2 with fewer features (often not important features). We are using `GridSearchCV`, which could conduct Grid Search on the hyperparameter while using cross validation to avoid overfitting problem. 
+
+After Grid Search, we find out the best value for `lasso_alpha` is 0.1.
+
+### Model Description
+
 
 
 
