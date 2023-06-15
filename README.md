@@ -80,6 +80,9 @@ After Grid Search, we find out the best value for `lasso_alpha` is 0.1.
 
 ### Model Interpretation and Performance
 
+The final lasso model with coefficients is provided below.
+
+The final mode
 
 
 # Fairness Analysis
