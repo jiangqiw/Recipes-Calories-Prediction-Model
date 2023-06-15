@@ -40,6 +40,10 @@ Additionally, the RMSE (Root Mean Squared Error) of the model is 26.447. The RMS
 
 Also, using the data visualization, we can have a look at the model's coefficients and performance.
 
+|   n_steps |   n_ingredients |   Intercept |
+|----------:|----------------:|------------:|
+|   67.5033 |         13.1822 |     306.167 |
+
 <iframe src="assets/fig1.html" width=800 height=600 frameBorder=0></iframe>
 
 The model can not correctly predic the calories of recipes since not enough feature and the recipes are clustered, making it hard to make precise prediction.
