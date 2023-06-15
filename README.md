@@ -28,7 +28,7 @@ In the Baseline Model, we are using the number of steps in the recipes `n_steps`
 
 ### Data encoding
 
-For the two random variable, we will be applying `StandardScaler` to standalize `n_steps` and directly use `ave_rating`.
+For the two random variable, we will be applying `StandardScaler` to standalize `n_steps` and directly use `n_ingredients`.
 
 ### Model Descriptions and Performance
 
