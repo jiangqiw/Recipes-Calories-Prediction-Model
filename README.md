@@ -39,6 +39,7 @@ The performance of your current model, as indicated by the R^2 value, is not ver
 Additionally, the RMSE (Root Mean Squared Error) of the model is 26.447. The RMSE is a measure of the differences between the values predicted by the model and the actual values. This value is not low enough to guarantee a accurate model. 
 
 Also, using the data visualization, we can have a look at the model.
+<iframe src="assets/fig3.html" width=800 height=600 frameBorder=0></iframe>
 
 The model can not correctly predic the calories of recipes since not enough feature and the recipes are clustered, making it hard to make precise prediction.
 
