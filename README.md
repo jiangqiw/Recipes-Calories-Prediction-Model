@@ -38,7 +38,7 @@ The performance of your current model, as indicated by the R^2 value, is not ver
 
 Additionally, the RMSE (Root Mean Squared Error) of the model is 26.447. The RMSE is a measure of the differences between the values predicted by the model and the actual values. This value is not low enough to guarantee a accurate model. 
 
-Also, using the data visualization, we can have a look at the model.
+Also, using the data visualization, we can have a look at the model's coefficients and performance.
 
 <iframe src="assets/fig1.html" width=800 height=600 frameBorder=0></iframe>
 
@@ -82,7 +82,16 @@ After Grid Search, we find out the best value for `lasso_alpha` is 0.1.
 
 The final lasso model with coefficients is provided below.
 
-The final mode
+The final model have the following performance:
+
+```
+r_sqrt: 0.9999999570376605
+rmse: 0.38285062369224615
+```
+
+The performance is greatly improved by introducing new features and also utilize the lasso model. The performance on the test dataset is high and indicating no overfitting problem and high validity. The R^2 is now 0.9999999570376605, which is remarkably close to 1, indicates that our model can explain almost 100% of the variability in the calories from the features. The RMSE value being as low as 0.38 demonstrates that our model has minimal residuals and hence, excellent predictive accuracy.
+
+Compared to the baseline model, the R^2 have significantly incresed, meaning that with the newly introduced features could well explain the calories of recipes. Also, the smaller RMSE of the final model indicate that our model is now better at the predicting accuracy. The predicted value is now more close to the actual value.
 
 
 # Fairness Analysis
