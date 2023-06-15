@@ -62,8 +62,6 @@ In the final model, we are introducing the following new features that could be 
 
 - `minutes`: The recipes cooking minutes could be related to the calories of a recipes. This is based on the idea that longer cooking times, often linked to complex dishes, may result in higher calorie counts, thus aiding in accurate prediction.
 
-- `n_ingredients`: The number of ingredient could be related to the food calories. For example, a recipes with more ingredients could be a huge meal that could be enjoyed by multiple people, therefore resulting in high calories.
-
 - `total fat (PDV)`: Total fat as one important part of the nutrition that could impact the calculation of calories. Food with more total fat often tend to have more calories
 
 - `sugar (PDV)`: The quantity of sugar is a critical factor that significantly contributes to a recipe's calorie count. Typically, recipes with higher sugar levels tend to have greater caloric values due to sugar's high energy content.
