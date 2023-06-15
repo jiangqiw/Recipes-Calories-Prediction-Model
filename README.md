@@ -30,7 +30,7 @@ In the Baseline Model, we are using the number of steps in the recipes `n_steps`
 
 For the two random variable, we will be applying `StandardScaler` to standalize `n_steps` and directly use `ave_rating`.
 
-### Model Description and Performance
+### Model Descriptions and Performance
 
 We will be using linear regression model in the `sklearn` to build up the regression model. The linear regression model will predict the calories of a recipe with a polynomial with at most degree of one.
 
@@ -44,7 +44,7 @@ The model can not correctly predic the calories of recipes since not enough feat
 
 ## Final Model
 
-### Model Chossen
+### Model Chosen
 
 In the final model, we are choose Lasso regression model. The Lasso model, short for Least Absolute Shrinkage and Selection Operator, is a type of linear regression that uses shrinkage, where data values are shrunk towards a central point like the mean. This is particularly useful in this problem because it not only helps in avoiding overfitting but also performs feature selection. By shrinking some of the coefficients to zero, it effectively removes the less important features, thus making the model simpler and interpretable, which is crucial for understanding the relationships between recipe characteristics and calorie content.
 
@@ -76,9 +76,19 @@ For the Lasso model, we are working on the `lasso__alpha` as hyperparameter. The
 
 After Grid Search, we find out the best value for `lasso_alpha` is 0.1.
 
-### Model Description
+### Model Interpretation and Performance
 
 
+
+# Fairness Analysis
+
+In general, we are thinking about whether the different numbers of ingredients in our recipes will make our final model perform differently to predict calories. Thus, we draw a distribution of ‘n_ingredients’ column in the recipe data frame and then we take the median number 9 of ingredients in recipes as the threshold to classify all recipes into two groups: Group X has the number of ingredients below or equal to 9 and Group Y has the number of ingredients above 9.
+
+My null hypothesis is that the performance of our model to predict calories in the Group X is as the same as the performance of our model to predict calories in the Group Y. 
+
+My alternative hypothesis is that the performance of our model to predict calories in the Group X is different from the performance of our model to predict calories in the Group Y. 
+
+In test statistics, we utilize the difference between root mean square errors(RMSE) of Group X and Group Y. In general, we take 0.05 as the significance threshold. Our observed statistics is the true difference of RMSE between Group X and Group Y.  To test our hypothesis, we run permutation test by permute ‘n_ingredients’ column , and use our already fitted model to predict the corresponding calories. Finally we calculate the RMSE differences in two groups and repeat this process 1000 times. The p-value of these 1000 simulations is almost 0. Thus, we reject the null hypothesis that the performance of our model to predict calories in the Group X is as the same as the performance of our model to predict calories in the Group Y. It is not truly fair. 
 
 
 
