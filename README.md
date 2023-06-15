@@ -22,15 +22,15 @@ R^2 is essential as it provides an intuitive measure of how much of the variatio
 
 ## Baseline Model
 
-#### Brief Introduction
+### Brief Introduction
 
 In the Baseline Model, we are using the number of steps in the recipes `n_steps` and then number of ingredients `n_ingredients` to predict the calories for the recipes. We will be using 2 quantitative variables, and no ordinal and nominal variable to build the regression model.
 
-#### Data encoding
+### Data encoding
 
 For the two random variable, we will be applying `StandardScaler` to standalize `n_steps` and directly use `ave_rating`.
 
-#### Model Description and Performance
+### Model Description and Performance
 
 We will be using linear regression model in the `sklearn` to build up the regression model. The linear regression model will predict the calories of a recipe with a polynomial with at most degree of one.
 
@@ -41,5 +41,37 @@ Additionally, the RMSE (Root Mean Squared Error) of the model is 26.447. The RMS
 Also, using the data visualization, we can have a look at the model.
 
 The model can not correctly predic the calories of recipes since not enough feature and the recipes are clustered, making it hard to make precise prediction.
+
+## Final Model
+
+### Model Chossen
+
+In the final model, we are choose Lasso regression model. The Lasso model, short for Least Absolute Shrinkage and Selection Operator, is a type of linear regression that uses shrinkage, where data values are shrunk towards a central point like the mean. This is particularly useful in this problem because it not only helps in avoiding overfitting but also performs feature selection. By shrinking some of the coefficients to zero, it effectively removes the less important features, thus making the model simpler and interpretable, which is crucial for understanding the relationships between recipe characteristics and calorie content.
+
+### Features Added
+
+In the final model, we are introducing the following new features that could be related to predicting the calories.
+
+- `minutes`: The recipes cooking minutes could be related to the calories of a recipes. This is based on the idea that longer cooking times, often linked to complex dishes, may result in higher calorie counts, thus aiding in accurate prediction.
+
+- `n_ingredients`: The number of ingredient could be related to the food calories. For example, a recipes with more ingredients could be a huge meal that could be enjoyed by multiple people, therefore resulting in high calories.
+
+- `total fat (PDV)`: Total fat as one important part of the nutrition that could impact the calculation of calories. Food with more total fat often tend to have more calories
+
+- `sugar (PDV)`: The quantity of sugar is a critical factor that significantly contributes to a recipe's calorie count. Typically, recipes with higher sugar levels tend to have greater caloric values due to sugar's high energy content.
+
+- `sodium (PDV)`: Although sodium doesn't directly contribute to the calorie count, it's often associated with processed and high-calorie foods, including pizza and smoked meet. Therefore, a high sodium content may indicate a higher calorie count.
+
+- `protein (PDV)`: Recipes with high protein content could potentially have more calories. Protein-rich ingredients like meat and dairy products often contribute significantly to the total calorie count of a recipe.
+
+- `saturated fat (PDV)`: Saturated fats are a major source of calories. Recipes with a high proportion of saturated fats, such as those involving fatty meats or full-fat dairy products, usually have higher calorie content.
+
+- `carbohydrates (PDV)`: Carbohydrates are a primary energy source and contribute significantly to a recipe's calorie count. Dishes with high carbohydrate content, like pasta or baked goods, tend to have a higher number of calories.
+
+To better fit the Lasso model, we are also doing transformation on the features. We mainly apply `StandardScaler` to our new features, including `n_ingredients`, `total fat (PDV)`, `sugar (PDV)`, `sodium (PDV)`, `protein (PDV)`, `saturated fat (PDV)`, `carbohydrates (PDV)`. We also done `QuantileTransformer` on `minutes`. This is to create better features for the Lasso model since it need to shrink some coefficients, and balance the weights of all variables before training.
+
+### Choice of Hyperparameters
+
+
 
 
