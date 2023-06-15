@@ -39,7 +39,8 @@ The performance of your current model, as indicated by the R^2 value, is not ver
 Additionally, the RMSE (Root Mean Squared Error) of the model is 26.447. The RMSE is a measure of the differences between the values predicted by the model and the actual values. This value is not low enough to guarantee a accurate model. 
 
 Also, using the data visualization, we can have a look at the model.
-<iframe src="assets/fig3.html" width=800 height=600 frameBorder=0></iframe>
+
+<iframe src="assets/fig1.html" width=800 height=600 frameBorder=0></iframe>
 
 The model can not correctly predic the calories of recipes since not enough feature and the recipes are clustered, making it hard to make precise prediction.
 
@@ -83,7 +84,10 @@ After Grid Search, we find out the best value for `lasso_alpha` is 0.1.
 
 # Fairness Analysis
 
-In general, we are thinking about whether the different numbers of ingredients in our recipes will make our final model perform differently to predict calories. Thus, we draw a distribution of ‘n_ingredients’ column in the recipe data frame and then we take the median number 9 of ingredients in recipes as the threshold to classify all recipes into two groups: Group X has the number of ingredients below or equal to 9 and Group Y has the number of ingredients above 9.
+In general, we are thinking about whether the different numbers of ingredients in our recipes will make our final model perform differently to predict calories. Thus, we draw a distribution of ‘n_ingredients’ column in the recipe data frame and then we take the median number 9 of ingredients in recipes as the threshold to classify all recipes into two groups: Group X has the number of ingredients below or equal to 9 and Group Y has the number of ingredients above 9. Here is a visualization of the distribution of number of the ingredients.
+
+<iframe src="assets/fig2.html" width=800 height=600 frameBorder=0></iframe>
+
 
 My null hypothesis is that the performance of our model to predict calories in the Group X is as the same as the performance of our model to predict calories in the Group Y. 
 
@@ -91,5 +95,6 @@ My alternative hypothesis is that the performance of our model to predict calori
 
 In test statistics, we utilize the difference between root mean square errors(RMSE) of Group X and Group Y. In general, we take 0.05 as the significance threshold. Our observed statistics is the true difference of RMSE between Group X and Group Y.  To test our hypothesis, we run permutation test by permute ‘n_ingredients’ column , and use our already fitted model to predict the corresponding calories. Finally we calculate the RMSE differences in two groups and repeat this process 1000 times. The p-value of these 1000 simulations is almost 0. Thus, we reject the null hypothesis that the performance of our model to predict calories in the Group X is as the same as the performance of our model to predict calories in the Group Y. It is not truly fair. 
 
+<iframe src="assets/fig3.html" width=800 height=600 frameBorder=0></iframe>
 
 
