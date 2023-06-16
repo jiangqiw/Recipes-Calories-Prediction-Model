@@ -24,15 +24,25 @@ R^2 is essential as it provides an intuitive measure of how much of the variatio
 
 ### Brief Introduction
 
-In the Baseline Model, we are using the number of steps in the recipes `n_steps` and then number of ingredients `n_ingredients` to predict the calories for the recipes. We will be using 2 quantitative variables, and no ordinal and nominal variable to build the regression model.
+In the Baseline Model, we are using the number of steps in the recipes `n_steps` and then number of ingredients `n_ingredients`, and the years the recipes is submitted to predict the calories for the recipes. We will be using 2 quantitative variables, and no ordinal and 1 nominal variable to build the regression model.
 
 ### Data encoding
 
-For the two random variable, we will be applying `StandardScaler` to standalize `n_steps` and directly use `n_ingredients`.
+For the two random variable, we will be applying `StandardScaler` to standalize `n_steps` and use an identity function to transform `n_ingredients`. For the year, we will first get the year from the `submitted` column and use one hot encoder to deal with the value.
+
+Here are the reasons why we choose these as the features:
+
+- `n_steps`: The steps of a recipes could be related to the calories of a meal since when designing the recipes, large meal that could be enjoyed by many people might include more steps, and therefore resulting in a larger calories.
+
+- `n_ingredients`: The number of ingredients is directly related with what the recipes is, and similar to the number of steps, the greater number of ingredients could result in higher calories.
+
+- `submitted`: We are using the year the recipes is published as a feature. We believe that there might be a trend of eating healthy / unhealthy food, so the year might reflect a trend signaling whether the recipes have high or low calories.
 
 ### Model Descriptions and Performance
 
 We will be using linear regression model in the `sklearn` to build up the regression model. The linear regression model will predict the calories of a recipe with a polynomial with at most degree of one.
+
+
 
 The performance of your current model, as indicated by the R^2 value, is not very strong. The R^2 value of 0.0217 implies that only approximately 2.17% of the variability in the calorie content can be explained by the variables 'n_steps' and 'n_ingredients'. This suggests that these features might not be the most influential factors when it comes to predicting calorie content, or that the relationship between these features and calories might not be linear, as assumed by the linear regression model.
 
@@ -49,6 +59,12 @@ Also, using the data visualization, we can have a look at the model's coefficien
 <iframe src="assets/fig1.html" width=800 height=600 frameBorder=0></iframe>
 
 The model can not correctly predict the calories of recipes since not enough feature and the recipes are clustered, making it hard to make precise prediction.
+
+### Reconsidering the features for the baseline model
+
+We have found that the categorical feature added is not that significant to the testing result. We are now conducting another model with only the numerical features, which are the `n_steps` and `n_ingredients`
+
+
 
 ## Final Model
 
