@@ -42,28 +42,15 @@ Here are the reasons why we choose these as the features:
 
 We will be using linear regression model in the `sklearn` to build up the regression model. The linear regression model will predict the calories of a recipe with a polynomial with at most degree of one.
 
+The performance of your current model, as indicated by the R^2 value, is not very strong. The R^2 value of 0.023982838159796627 implies that only approximately 2.24% of the variability in the calorie content can be explained by the variables 'n_steps' and 'n_ingredients'. This suggests that these features might not be the most influential factors when it comes to predicting calorie content, or that the relationship between these features and calories might not be linear, as assumed by the linear regression model.
 
+Additionally, the RMSE (Root Mean Squared Error) of the model is 26.431495838351818. The RMSE is a measure of the differences between the values predicted by the model and the actual values. This value is not low enough to guarantee a accurate model. 
 
-The performance of your current model, as indicated by the R^2 value, is not very strong. The R^2 value of 0.0217 implies that only approximately 2.17% of the variability in the calorie content can be explained by the variables 'n_steps' and 'n_ingredients'. This suggests that these features might not be the most influential factors when it comes to predicting calorie content, or that the relationship between these features and calories might not be linear, as assumed by the linear regression model.
-
-Additionally, the RMSE (Root Mean Squared Error) of the model is 26.447. The RMSE is a measure of the differences between the values predicted by the model and the actual values. This value is not low enough to guarantee a accurate model. 
-
-Also, using the data visualization, we can have a look at the model's coefficients and performance.
-
-
-|   n_steps |   n_ingredients |   Intercept |
-|----------:|----------------:|------------:|
-|   67.5033 |         13.1822 |     306.167 |
-
+Also, using the data visualization, we can have a look at the model's performance.
 
 <iframe src="assets/fig1.html" width=800 height=600 frameBorder=0></iframe>
 
 The model can not correctly predict the calories of recipes since not enough feature and the recipes are clustered, making it hard to make precise prediction.
-
-### Reconsidering the features for the baseline model
-
-We have found that the categorical feature added is not that significant to the testing result. We are now conducting another model with only the numerical features, which are the `n_steps` and `n_ingredients`
-
 
 
 ## Final Model
@@ -109,22 +96,14 @@ After Grid Search, we find out the best value for `lasso_alpha` is 0.1.
 
 ### Model Interpretation and Performance
 
-The final lasso model with coefficients is provided below.
-
-|   minutes |   n_steps |   n_ingredients |   calories |   total fat (PDV) |   sugar (PDV) |   sodium (PDV) |   protein (PDV) |   saturated fat (PDV) |   carbohydrates (PDV) |   Intercept |
-|----------:|----------:|----------------:|-----------:|------------------:|--------------:|---------------:|----------------:|----------------------:|----------------------:|------------:|
-|         0 |         0 |         603.775 |  0.0423454 |                 0 |             0 |      0.0496197 |        0.185867 |              0.200944 |                     0 |      427.46 |
-
-Some coefficient are 0, meaning that the lasso model have already doing the shrinking process, to eliminate the excessive featuers, avoiding overfitting problem and also making the coefficient easier to interpret.
-
 The final model have the following performance:
 
 ```
-r_sqrt: 0.9999999570376605
-rmse: 0.38285062369224615
+r_sqrt: 0.9999999260941607
+rmse: 0.4384570593476264
 ```
 
-The performance is greatly improved by introducing new features and also utilize the lasso model. The performance on the test dataset is high and indicating no overfitting problem and high validity. The R^2 is now 0.9999999570376605, which is remarkably close to 1, indicates that our model can explain almost 100% of the variability in the calories from the features. The RMSE value being as low as 0.38 demonstrates that our model has minimal residuals and hence, excellent predictive accuracy.
+The performance is greatly improved by introducing new features and also utilize the lasso model. The performance on the test dataset is high and indicating no overfitting problem and high validity. The R^2 is remarkably close to 1, indicates that our model can explain almost 100% of the variability in the calories from the features. The RMSE value being as low as 0.438 demonstrates that our model has minimal residuals and hence, excellent predictive accuracy.
 
 Compared to the baseline model, the R^2 have significantly incresed, meaning that with the newly introduced features could well explain the calories of recipes. Also, the smaller RMSE of the final model indicate that our model is now better at the predicting accuracy. The predicted value is now more close to the actual value.
 
