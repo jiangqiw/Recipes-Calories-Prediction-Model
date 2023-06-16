@@ -6,7 +6,7 @@ By Jiangqi Wu & Yuxuan Zhang
 
 ## Problem Identification
 
-In this research project, we are aiming to accurately predict the caloric content ('calories') of a recipe based on its features such as cooking time (`minutes`), description (`description`), and other nutritional information (`nutrition`, `total fat (PDV)`, `sugar (PDV)`), the number of steps (`n_steps`), and the number of ingredients (`n_ingredients`) in a comprehensive recipe dataset.
+In this research project, we are aiming to accurately predict the caloric content ('calories') of a recipe based on its features such as the number of steps, published year of the recipes, and other nutritional information (`total fat (PDV)`, `sugar (PDV)`), the number of steps (`n_steps`), and the number of ingredients (`n_ingredients`) in a comprehensive recipe dataset.
 
 This is a regression problem since we aim to predict a continuous outcome, the `calories`, which is a numeric value.
 
